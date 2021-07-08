@@ -115,15 +115,15 @@
 <meta property="og:site_name" content="Wynn&#39;s tech blog">
 <meta property="og:description" content="前言在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC； 什么是Babel？Babel 是一个工具，可以将较新版本的 JavaScript 代码（例如ES6）转译为旧版本的 JavaScript——它甚至可以转译TypeScript。 Babel 根">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://blog.logrocket.com/wp-content/uploads/2020/06/ast.png">
-<meta property="og:image" content="http://yoursite.com/Users/linweili/Library/Application%20Support/typora-user-images/image-20210630165907795.png">
-<meta property="og:image" content="http://yoursite.com/Users/linweili/Library/Application%20Support/typora-user-images/image-20210630170650346.png">
-<meta property="og:image" content="http://yoursite.com/Users/linweili/Library/Application%20Support/typora-user-images/image-20210630170708004.png">
-<meta property="og:updated_time" content="2021-07-08T09:43:50.681Z">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/ast.png">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/swc-test1.png">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/swc-test2.png">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/swc-test3.png">
+<meta property="og:updated_time" content="2021-07-08T09:54:27.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么要用 SWC">
 <meta name="twitter:description" content="前言在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC； 什么是Babel？Babel 是一个工具，可以将较新版本的 JavaScript 代码（例如ES6）转译为旧版本的 JavaScript——它甚至可以转译TypeScript。 Babel 根">
-<meta name="twitter:image" content="https://blog.logrocket.com/wp-content/uploads/2020/06/ast.png">
+<meta name="twitter:image" content="http://yoursite.com/2021/07/08/imgs/ast.png">
 
 
 
@@ -327,7 +327,7 @@
                 
               
 
-              <time title="Created: 2021-07-08 17:45:00 / Modified: 17:43:50" itemprop="dateCreated datePublished" datetime="2021-07-08T17:45:00+08:00">2021-07-08</time>
+              <time title="Created: 2021-07-08 17:45:00 / Modified: 17:54:27" itemprop="dateCreated datePublished" datetime="2021-07-08T17:45:00+08:00">2021-07-08</time>
             
 
             
@@ -376,7 +376,7 @@
 <li><p>最后，Babel 的生成器会将修改后的 AST 转换回常规代码</p>
 </li>
 </ul>
-<p><img src="https://blog.logrocket.com/wp-content/uploads/2020/06/ast.png" alt="抽象语法树 "></p>
+<p><img src="../imgs/ast.png" alt="抽象语法树 "></p>
 <h2 id="Babel-的替代方案（用-Rust-编写）"><a href="#Babel-的替代方案（用-Rust-编写）" class="headerlink" title="Babel 的替代方案（用 Rust 编写）"></a>Babel 的替代方案（用 Rust 编写）</h2><p>SWC(<a href="https://swc-project.github.io/)也是" target="_blank" rel="noopener">https://swc-project.github.io/)也是</a> JavaScript 中的 transpiler ，它是用 Rust 编写的，是比 Babel 快得多。Rust 以其性能和可靠性而闻名，Rust 如此高效的原因之一是垃圾回收，通过不再使用的数据对象释放内存资源。由于 Rust 在编译时决定不再需要哪些内存资源并且不必连续运行，因此处理时间减少而性能提升增加。</p>
 <h2 id="不是所有的前端项目都需要编译器！"><a href="#不是所有的前端项目都需要编译器！" class="headerlink" title="不是所有的前端项目都需要编译器！"></a>不是所有的前端项目都需要编译器！</h2><p>在某些情况下，可能不需要使用编译器：</p>
 <ul>
@@ -416,12 +416,12 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// .swcrc</span><br><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"jsc"</span>: &#123;</span><br><span class="line">      <span class="attr">"parser"</span>: &#123;</span><br><span class="line">        <span class="attr">"syntax"</span>: <span class="string">"ecmascript"</span>,</span><br><span class="line">        <span class="attr">"jsx"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">".*.js"</span>,</span><br><span class="line">    <span class="attr">"module"</span>: &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"amd"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">"env"</span>: &#123;</span><br><span class="line">      <span class="attr">"targets"</span>: <span class="string">"&gt; 0.25%, not dead"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>通过以上的配置文件，做各种配置的转化，我们能处理很多目前写出来的代码</p>
 <h2 id="Babel-和-SWC-的速度比较"><a href="#Babel-和-SWC-的速度比较" class="headerlink" title="Babel 和 SWC 的速度比较"></a>Babel 和 SWC 的速度比较</h2><p>编译器的速度至关重要，对于开发人员来说，可以在这方面节省的任何时间都是宝贵的。以下是由 SWC 项目的维护者执行的测试</p>
-<h3 id="单核-CPU"><a href="#单核-CPU" class="headerlink" title="单核 CPU"></a>单核 CPU</h3><p><img src="/Users/linweili/Library/Application Support/typora-user-images/image-20210630165907795.png" alt="image-20210630165907795"></p>
+<h3 id="单核-CPU"><a href="#单核-CPU" class="headerlink" title="单核 CPU"></a>单核 CPU</h3><p><img src="../imgs/swc-test1.png" alt="image-20210630165907795"></p>
 <h3 id="多核CPU"><a href="#多核CPU" class="headerlink" title="多核CPU"></a>多核CPU</h3><p>为了利用到多核，测试用 多开 promise 来测试运行的性能</p>
 <p>同时运行4个promise</p>
-<p><img src="/Users/linweili/Library/Application Support/typora-user-images/image-20210630170650346.png" alt="image-20210630170650346"></p>
+<p><img src="../imgs/swc-test2.png" alt="image-20210630170650346"></p>
 <p>同时运行100个promise</p>
-<p><img src="/Users/linweili/Library/Application Support/typora-user-images/image-20210630170708004.png" alt="image-20210630170708004"></p>
+<p><img src="../imgs/swc-test3.png" alt="image-20210630170708004"></p>
 <p>在多核异步情况下，SWC能充分利用CPU的性能，比在单核里的较量提升得更明显。</p>
 <p>总的来说，两个工具之间存在明显的速度差距，因为 SWC在单线程和 CPU 内核基础上往往比 Babel 快 <strong>20</strong> 倍左右，而在多核异步操作过程中则快 <strong>60</strong> 倍左右。</p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>上面讲到编译器的基础知识，在一定的情况下比较了双方的能力：</p>
