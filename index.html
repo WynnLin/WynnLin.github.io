@@ -323,7 +323,7 @@
                 
               
 
-              <time title="Created: 2021-07-08 17:28:37 / Modified: 17:30:03" itemprop="dateCreated datePublished" datetime="2021-07-08T17:28:37+08:00">2021-07-08</time>
+              <time title="Created: 2021-07-08 17:45:00 / Modified: 17:43:50" itemprop="dateCreated datePublished" datetime="2021-07-08T17:45:00+08:00">2021-07-08</time>
             
 
             
@@ -430,6 +430,192 @@
 </ul>
 <p>尽管如此，SWC 还是有希望能在传统的构建流程上 让 性能速度 这一项数据 不再成为我们的累赘。</p>
 <p>PS：工具不断内卷的原因 还是因为代码世界不够完美；人嘛！够完美了！就不要内卷了嘛！</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/08/ESN-构建工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wynn's tech blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/07/08/ESN-构建工具/" itemprop="url">
+                  ESN 构建工具
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-07-08 17:42:42 / Modified: 17:43:24" itemprop="dateCreated datePublished" datetime="2021-07-08T17:42:42+08:00">2021-07-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前段时间周会上提到了 vite 构建工具的 搭建的事情，出于对其好奇，遂开始进入探索模式。</p>
+<p>vite是基于ESM的构建工具，除此之外还有snowpack（前期对其关注始于 piko/web项目，现更名完差点不认识了 :joy:）等。 ESM 的意义是 让项目的工程构建不再需要构建一个完整的 bundle，借助浏览器 ESM 的能力，一些代码基本可以做到无需构建直接运行。</p>
+<p>ESM的构建工具 和 传统 bundle 构建工具之间，最直观的体感就是 编译的速度，直接给前端工程师看到了996变955的希望。（狗头脸）</p>
+<p>当然，传统构建工具秉持着 被骂习惯了，偶尔也要动一动的精神，也在不断努力提升自己性能（你过来啊！！！）。</p>
+<p>正面刚不过，传统依然有自己的优势存在。</p>
+<h1 id="打包的由来"><a href="#打包的由来" class="headerlink" title="打包的由来"></a>打包的由来</h1><p>最开始的打包可以从把多个 JavaScript 文件 输出成一个文件，减少网络请求开始讲起，这更像是合并代码，但是也是打包的一个过程。</p>
+<p>后续，JavaScript 的打包的正式概念是 JavaScript 的模块化开始。在尝到模块化的甜头之后，模块化的整个开发被生态化，随之而来的是怎么合理组合模块，怎么让浏览器正确运行前端项目，打包工具由此应运而生。</p>
+<p>在前端工程不断地发展下，打包构建工具的地位愈发重要，对工具本身的要求也愈高。</p>
+<h1 id="snowpack"><a href="#snowpack" class="headerlink" title="snowpack"></a>snowpack</h1><p>为什么基于 ESM的构建工具 snowpack/vite 会比 webpack 在构建的时候要快很多，以下是对 snowpack的简介</p>
+<blockquote>
+<p>Snowpack is a lightning-fast frontend build tool, designed for the modern web. It is an alternative to heavier, more complex bundlers like webpack or Parcel in your development workflow. Snowpack leverages JavaScript’s native module system (known as ESM) to avoid unnecessary work and stay fast no matter how big your project grows.</p>
+</blockquote>
+<p>简单解释下重点：</p>
+<blockquote>
+<p>能在开发流程内替代原有的繁重且复杂的构建工具。借助 ESM 的能力，不管你的项目有多大，模块化交给浏览器处理，避免了打包过程中的不必要的工作，不存在资源重复加载的问题，如果不是涉及到 jsx 或者 typescript 语法，甚至 <strong>可以不用编译直接运行</strong></p>
+</blockquote>
+<h2 id="snowpack-的-ESM-使用"><a href="#snowpack-的-ESM-使用" class="headerlink" title="snowpack 的 ESM 使用"></a>snowpack 的 ESM 使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"/index.js"</span> type=<span class="string">"module"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>通过 type=”module” 告诉浏览器，当前脚本使用 ESM 模式，浏览器会构建一个依赖关系，借助浏览器原生的 ESM 能力完成模块的找、解析、实例化到执行的过程。</p>
+<p>index.js 里 可以是最直接的文件之间的import引用。</p>
+<h2 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h2><p>前端的复杂度在于 需要处理各种不同的资源文件，包括但不限于HTML, JS, CSS, 图片，语音文件等等资源。在整个项目流程中，需要处理这些资源，让浏览器能正确地识别并执行。</p>
+<p>snowpack 就对 以上资源 的构建做了不同的处理方式。</p>
+<h3 id="Import-依赖"><a href="#Import-依赖" class="headerlink" title="Import 依赖"></a>Import 依赖</h3><h4 id="第三方依赖"><a href="#第三方依赖" class="headerlink" title="第三方依赖"></a>第三方依赖</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"./_snowpack/pkg/react.v17.0.2.js"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"./_snowpack/pkg/react-dom.v17.0.2.js"</span>;</span><br></pre></td></tr></table></figure>
+<p>利用自己的  <strong><em>/_snowpack/pkg/</em></strong> 前缀，来匹配到 node_modules 下对应的第三方依赖，并输出。</p>
+<p> 重点看 剪头，对于第三方自己的依赖  也是已这样的形式输入，也就是完全摆脱了webpack 需要构建 具大的</p>
+<p><img src="http://tech.yuceyi.com:80/upload/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png" alt="1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png"> </p>
+<h4 id="项目内代码依赖"><a href="#项目内代码依赖" class="headerlink" title="项目内代码依赖"></a>项目内代码依赖</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  B  <span class="keyword">from</span>  <span class="string">'./B'</span></span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"><span class="keyword">import</span> B <span class="keyword">from</span> <span class="string">"./B.js"</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="http://tech.yuceyi.com:80/upload/4c3106d93ea146f1ba16eb42ec76c022_image.png" alt="4c3106d93ea146f1ba16eb42ec76c022_image.png"> </p>
+<p>对于自有的文件依赖，很简单地直接用相对根目录的路径来确认匹配到正确的文件。</p>
+<p>这里我们可以有个思考，上述两者，为什么需要做这样的区分。个人想法是，出于对目前的第三方依赖并不是完全的ESM导出，需要启动一个转换的接口，来兼容这些不确定因素。</p>
+<h3 id="Import-图片"><a href="#Import-图片" class="headerlink" title="Import 图片"></a>Import 图片</h3><p>对于图片的引用，我们是倾向于直接利用路径，直接输出对应静态资源的URL，在 snowpack 里</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  shoes  <span class="keyword">from</span>  <span class="string">'./shose.png'</span></span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"><span class="keyword">import</span> shoes <span class="keyword">from</span> <span class="string">"./shose.png.proxy.js"</span>;</span><br></pre></td></tr></table></figure>
+<p>对图片的处理是转化成一个JS文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./shose.png.proxy.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="string">"/shose.png"</span>;</span><br></pre></td></tr></table></figure>
+<p>JS文件内 输出 对应的资源的 相对路径，把对应的图片资源或拷贝或直连到本地目录</p>
+<p><img src="http://tech.yuceyi.com:80/upload/853cc290e6b543e8963508c93a655b3d_image.png" alt="853cc290e6b543e8963508c93a655b3d_image.png"> </p>
+<p>这样的处理方式的确更方便图片的引用，但是带来的问题是 如果是一个页面中引用了相当多的图片的时候，每一张图片都可能产出两个对应的文件来确保引用的正确性，整体的请求量是double的</p>
+<h3 id="Import-css"><a href="#Import-css" class="headerlink" title="Import css"></a>Import css</h3><p>CSS的引用方式就很hack，创建了对应的css.proxy.js，把css的内容字符串化，通过在页面上创建style link的形式，把css引用到页面里</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css.proxy.js"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./App.css.proxy.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span>  __SNOWPACK_HMR__ <span class="keyword">from</span> <span class="string">'/_snowpack/hmr-client.js'</span>;</span><br><span class="line"><span class="keyword">import</span>.meta.hot = __SNOWPACK_HMR__.createHotContext(<span class="keyword">import</span>.meta.url);</span><br><span class="line"></span><br><span class="line"><span class="comment">// [snowpack] add styles to the page (skip if no document exists)</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">document</span> !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span>.meta.hot.accept();</span><br><span class="line">  <span class="keyword">import</span>.meta.hot.dispose(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.head.removeChild(styleEl);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> code = <span class="string">".App &#123;\n    color: red;\n&#125;"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> styleEl = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>);</span><br><span class="line">  <span class="keyword">const</span> codeEl = <span class="built_in">document</span>.createTextNode(code);</span><br><span class="line">  styleEl.type = <span class="string">'text/css'</span>;</span><br><span class="line">  styleEl.appendChild(codeEl);</span><br><span class="line">  <span class="built_in">document</span>.head.appendChild(styleEl);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h3><p>对应其他的一些文件 其实大差不差 的处理方式，通过创建 JS 文件，产出 ESM 模式的文件，然后利用浏览器native的能力来解析处理 应用内的 依赖</p>
+<h1 id="snowpack-VS-webpack"><a href="#snowpack-VS-webpack" class="headerlink" title="snowpack VS webpack"></a>snowpack VS webpack</h1><ol>
+<li>整个生态环境 对于 目前 的 ESM 构建工具 还是弱的，整体的支持需要不断地去兼容。老牌大佬Webpack 在前端生态圈混迹多年 已经涵盖能涵盖的所有第三方依赖。</li>
+<li>webpack 对自己被不断诟病的 性能问题 也一直在出解决方案 包括 Module Federation 等；缓存等机制也是需要看公司本身是否能匹配，像嘉云目前的前端发布方式 缓存根本没用，这样的优化也就不了了之。</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>目前来看，ESM 是一个大的趋势，但是基于大环境的考虑，生产包 还是 要依赖 webpack 等来兼容 可能不支持 ESM 模式的浏览器，那 生产环境 和 开发环境 并不处于同一个 代码模式下，也会有风险点。</p>
+<p> 除此之外，预编译的babel新特性或者 sass 等 浏览器不支持的特性，还是需要依赖打包来构建，这里的性能发挥应该也会成为未来的一个卡点</p>
+<p> 未来更多的路，在确保生产和开发的同步之后，应该是webpack 和 ESM，相结合的方式。走过这一段路之后，再看 ESM 的天地有多高吧</p>
 
           
         
@@ -655,7 +841,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
