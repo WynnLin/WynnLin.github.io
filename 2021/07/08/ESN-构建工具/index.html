@@ -115,14 +115,14 @@
 <meta property="og:site_name" content="Wynn&#39;s tech blog">
 <meta property="og:description" content="前言前段时间周会上提到了 vite 构建工具的 搭建的事情，出于对其好奇，遂开始进入探索模式。 vite是基于ESM的构建工具，除此之外还有snowpack（前期对其关注始于 piko/web项目，现更名完差点不认识了 :joy:）等。 ESM 的意义是 让项目的工程构建不再需要构建一个完整的 bundle，借助浏览器 ESM 的能力，一些代码基本可以做到无需构建直接运行。 ESM的构建工具 和">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://tech.yuceyi.com:80/upload/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png">
-<meta property="og:image" content="http://tech.yuceyi.com:80/upload/4c3106d93ea146f1ba16eb42ec76c022_image.png">
-<meta property="og:image" content="http://tech.yuceyi.com:80/upload/853cc290e6b543e8963508c93a655b3d_image.png">
-<meta property="og:updated_time" content="2021-07-08T09:43:24.496Z">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/4c3106d93ea146f1ba16eb42ec76c022_image.png">
+<meta property="og:image" content="http://yoursite.com/2021/07/08/imgs/853cc290e6b543e8963508c93a655b3d_image.png">
+<meta property="og:updated_time" content="2021-07-08T10:15:31.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESN 构建工具">
 <meta name="twitter:description" content="前言前段时间周会上提到了 vite 构建工具的 搭建的事情，出于对其好奇，遂开始进入探索模式。 vite是基于ESM的构建工具，除此之外还有snowpack（前期对其关注始于 piko/web项目，现更名完差点不认识了 :joy:）等。 ESM 的意义是 让项目的工程构建不再需要构建一个完整的 bundle，借助浏览器 ESM 的能力，一些代码基本可以做到无需构建直接运行。 ESM的构建工具 和">
-<meta name="twitter:image" content="http://tech.yuceyi.com:80/upload/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png">
+<meta name="twitter:image" content="http://yoursite.com/2021/07/08/imgs/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png">
 
 
 
@@ -326,7 +326,7 @@
                 
               
 
-              <time title="Created: 2021-07-08 17:42:42 / Modified: 17:43:24" itemprop="dateCreated datePublished" datetime="2021-07-08T17:42:42+08:00">2021-07-08</time>
+              <time title="Created: 2021-07-08 17:42:42 / Modified: 18:15:31" itemprop="dateCreated datePublished" datetime="2021-07-08T17:42:42+08:00">2021-07-08</time>
             
 
             
@@ -388,9 +388,9 @@
 <h3 id="Import-依赖"><a href="#Import-依赖" class="headerlink" title="Import 依赖"></a>Import 依赖</h3><h4 id="第三方依赖"><a href="#第三方依赖" class="headerlink" title="第三方依赖"></a>第三方依赖</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">"./_snowpack/pkg/react.v17.0.2.js"</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">"./_snowpack/pkg/react-dom.v17.0.2.js"</span>;</span><br></pre></td></tr></table></figure>
 <p>利用自己的  <strong><em>/_snowpack/pkg/</em></strong> 前缀，来匹配到 node_modules 下对应的第三方依赖，并输出。</p>
 <p> 重点看 剪头，对于第三方自己的依赖  也是已这样的形式输入，也就是完全摆脱了webpack 需要构建 具大的</p>
-<p><img src="http://tech.yuceyi.com:80/upload/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png" alt="1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png"> </p>
+<p><img src="../imgs/1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png" alt="1b5abd5943e2444e97ea5a5c6dfa0ac8_image.png"> </p>
 <h4 id="项目内代码依赖"><a href="#项目内代码依赖" class="headerlink" title="项目内代码依赖"></a>项目内代码依赖</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  B  <span class="keyword">from</span>  <span class="string">'./B'</span></span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"><span class="keyword">import</span> B <span class="keyword">from</span> <span class="string">"./B.js"</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="http://tech.yuceyi.com:80/upload/4c3106d93ea146f1ba16eb42ec76c022_image.png" alt="4c3106d93ea146f1ba16eb42ec76c022_image.png"> </p>
+<p><img src="../imgs/4c3106d93ea146f1ba16eb42ec76c022_image.png" alt="4c3106d93ea146f1ba16eb42ec76c022_image.png"> </p>
 <p>对于自有的文件依赖，很简单地直接用相对根目录的路径来确认匹配到正确的文件。</p>
 <p>这里我们可以有个思考，上述两者，为什么需要做这样的区分。个人想法是，出于对目前的第三方依赖并不是完全的ESM导出，需要启动一个转换的接口，来兼容这些不确定因素。</p>
 <h3 id="Import-图片"><a href="#Import-图片" class="headerlink" title="Import 图片"></a>Import 图片</h3><p>对于图片的引用，我们是倾向于直接利用路径，直接输出对应静态资源的URL，在 snowpack 里</p>
@@ -398,7 +398,7 @@
 <p>对图片的处理是转化成一个JS文件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./shose.png.proxy.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="string">"/shose.png"</span>;</span><br></pre></td></tr></table></figure>
 <p>JS文件内 输出 对应的资源的 相对路径，把对应的图片资源或拷贝或直连到本地目录</p>
-<p><img src="http://tech.yuceyi.com:80/upload/853cc290e6b543e8963508c93a655b3d_image.png" alt="853cc290e6b543e8963508c93a655b3d_image.png"> </p>
+<p><img src="../imgs/853cc290e6b543e8963508c93a655b3d_image.png" alt="853cc290e6b543e8963508c93a655b3d_image.png"> </p>
 <p>这样的处理方式的确更方便图片的引用，但是带来的问题是 如果是一个页面中引用了相当多的图片的时候，每一张图片都可能产出两个对应的文件来确保引用的正确性，整体的请求量是double的</p>
 <h3 id="Import-css"><a href="#Import-css" class="headerlink" title="Import css"></a>Import css</h3><p>CSS的引用方式就很hack，创建了对应的css.proxy.js，把css的内容字符串化，通过在页面上创建style link的形式，把css引用到页面里</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"./App.css"</span>;</span><br><span class="line"><span class="comment">// 转化为</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"./App.css.proxy.js"</span>;</span><br></pre></td></tr></table></figure>
