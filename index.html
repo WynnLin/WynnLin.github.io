@@ -669,6 +669,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/08/前端图片通识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wynn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wynn's tech blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/07/08/前端图片通识/" itemprop="url">
+                  前端图片通识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-07-08 14:03:24 / Modified: 18:06:18" itemprop="dateCreated datePublished" datetime="2021-07-08T14:03:24+08:00">2021-07-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>前端的同学对图片这个媒体素材不陌生，但是对于图片的一些基础的知识了解甚少。下面会针对图片的一些特性，扩展知识。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="矢量图与栅格图像"><a href="#矢量图与栅格图像" class="headerlink" title="矢量图与栅格图像"></a>矢量图与栅格图像</h3><ul>
+<li>矢量图：形使用线、点和多边形来表示图像。</li>
+<li>栅格图像： 通过对矩形格栅内的每个像素的值进行编码来表示图像。</li>
+</ul>
+<p>矢量图： 代表图 SVG，矢量图的缩放不会导致图片的失真</p>
+<p>栅格图像：代表图 JPG, PNG等。由一个个的像素栅格组成；每个像素都编码了颜色和透明度信息；使用不用的压缩算法，以减小图像的文件大小。</p>
+<h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><ul>
+<li>有损压缩：指在压缩文件大小的过程中，损失了一部分图片的信息，也即降低了图片的质量，并且这种损失是不可逆的，我们不可能从有一个有损压缩过的图片中恢复出全来的图片。常见的有损压缩手段，是按照一定的算法将临近的像素点进行合并。</li>
+<li>无损压缩：只在压缩文件大小的过程中，图片的质量没有任何损耗。我们任何时候都可以从无损压缩过的图片中恢复出原来的信息。</li>
+<li>空间分割优化：通俗话来讲，就是把一张图 色值相差在一个范围内的分成一个区域，再分别对区域冗余性压缩</li>
+</ul>
+<h2 id="JPG-JPEG-和-PNG"><a href="#JPG-JPEG-和-PNG" class="headerlink" title="JPG/JPEG 和 PNG"></a>JPG/JPEG 和 PNG</h2><p>下面通过比对 两种 不同格式的图片来 GET 图片上的一些特性，对于GIF等动态图会更复杂，暂不展开</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>两种图片对应的图像格式都是 栅格图像</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>JPG/JPEG:<ol>
+<li>不支持透明；</li>
+<li>有损压缩。压缩时质量级别越低体积越小，图片也越模糊。所以，在使用时，需要根据需要选择合适的质量级别。</li>
+<li>JPEG 适合于色彩丰富，线条感比较弱的图片，比如大的背景图，banner 图等等。</li>
+</ol>
+</li>
+<li>PNG:<ol>
+<li>支持透明；</li>
+<li>无损压缩；但是可以调整调色板的大小来减小体积。</li>
+<li>PNG 是一种无损压缩的高保真的图片格式，可以保存更多的细节，同时体积也就相对大。</li>
+</ol>
+</li>
+</ul>
+<h3 id="编码格式和加载方式"><a href="#编码格式和加载方式" class="headerlink" title="编码格式和加载方式"></a>编码格式和加载方式</h3><ul>
+<li><p>JPG/JPEG:<br>  对应有jpg baseline 和 jpg progressive 两种比较常见的编码格式。</p>
+<p>  jpg baseline 在加载的时候是采用离散余弦变换算法，逐行扫描，也就是从图片的头部开始往下一行一行地扫描并且加载。现在大部分的图片应该都是采用这种方式加载。缺点非常的明显，在网速很差或者图片很大的情况下，给用户的感受就是从白屏一点点往下显示。</p>
+<p>  jpg progressive 在加载时候是采用小波算法，交错扫描（隔行扫描）。图像分成多次扫描， 第一次扫描以模糊或低质量设置显示图像，后续扫描逐步提高图像质量。 我们可以将这个过程看作“渐进式”提高图像质量。 每次“扫描”图像都会增加细节的清晰程度，最后合并为全画质图像。jpg progressive 可以在没有下载完图片就可以看到最终图像的大致轮廓甚至感官中的图片本身，一定程度上可以提升用户体验。</p>
+<p>  两者相比，jpg progressive需要更多的 CPU 资源去解码。</p>
+<p>  <del>使用jpg baseline 相比还是jpg progressive，需要我们根据场景选择，在文件大小，网络延迟和 CPU 消耗之间做一个权衡。</del></p>
+<p>  基于现实场景，大多数情况下，我们都不太care用户的CPU资源（上面那句话就是官方一点）</p>
+</li>
+<li><p>PNG:<br>  PNG的常用三种形式：PNG8，PNG24 和 PNG32。</p>
+<p>  他们对应的不同是每个像素点的数据，PNG8 需要 8 位即一个字节，而 PNG24 使用 24 位也就是三个字    节：RGB 三个通道各需一个字节。<br>  因为位数不同，能表示的颜色数量不同。PNG8 最多只能表示 256 色，而 PNG24 支持 24 位真彩色。</p>
+<p>  到这里其实对于PNG的为什么无损压缩还能压缩 有了一定的概念，PNG压缩的是像素点对应的数据位数</p>
+<p>  话不多述 直接上图，下面是一张皮卡丘的简单图</p>
+</li>
+</ul>
+<h2 id="前端对图片压缩的处理"><a href="#前端对图片压缩的处理" class="headerlink" title="前端对图片压缩的处理"></a>前端对图片压缩的处理</h2><p>其实很惨，前端的javascript 在不基于node的情况下能对图片的控制和处理程度非常有限。因为处理图片需要大量的计算，猜测这也是为什么限制基于浏览器的图片处理。<br>既然是有限 那也是有压缩的办法。直接贴代码：</p>
+<p>核心思想是两个</p>
+<ol>
+<li>基于exif-js库去确认图片的基本信息，对图片进行矫正；</li>
+<li>基于 canvas 画出图片，再依赖canvas的api去导出图片原数据</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/04/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -841,7 +1028,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
