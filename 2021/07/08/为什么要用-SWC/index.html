@@ -108,20 +108,29 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wynn&#39;s tech blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前言在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC； 什么是Babel？Babel 是一个工具，可以将较新版本的 JavaScript 代码（例如ES6）转译为旧版本的 JavaScript——它甚至可以转译TypeScript。 Babel 根">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么要用 SWC">
+<meta property="og:url" content="http://yoursite.com/2021/07/08/为什么要用-SWC/index.html">
 <meta property="og:site_name" content="Wynn&#39;s tech blog">
+<meta property="og:description" content="前言在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC； 什么是Babel？Babel 是一个工具，可以将较新版本的 JavaScript 代码（例如ES6）转译为旧版本的 JavaScript——它甚至可以转译TypeScript。 Babel 根">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://blog.logrocket.com/wp-content/uploads/2020/06/ast.png">
+<meta property="og:image" content="http://yoursite.com/Users/linweili/Library/Application%20Support/typora-user-images/image-20210630165907795.png">
+<meta property="og:image" content="http://yoursite.com/Users/linweili/Library/Application%20Support/typora-user-images/image-20210630170650346.png">
+<meta property="og:image" content="http://yoursite.com/Users/linweili/Library/Application%20Support/typora-user-images/image-20210630170708004.png">
+<meta property="og:updated_time" content="2021-07-08T09:30:03.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wynn&#39;s tech blog">
+<meta name="twitter:title" content="为什么要用 SWC">
+<meta name="twitter:description" content="前言在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC； 什么是Babel？Babel 是一个工具，可以将较新版本的 JavaScript 代码（例如ES6）转译为旧版本的 JavaScript——它甚至可以转译TypeScript。 Babel 根">
+<meta name="twitter:image" content="https://blog.logrocket.com/wp-content/uploads/2020/06/ast.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/07/08/为什么要用-SWC/"/>
 
 
 
@@ -131,7 +140,7 @@
   };
 </script>
 
-  <title>Wynn's tech blog</title>
+  <title>为什么要用 SWC | Wynn's tech blog</title>
   
 
 
@@ -178,8 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,7 +224,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
@@ -260,9 +268,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -294,11 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/07/08/为什么要用-SWC/" itemprop="url">
-                  为什么要用 SWC
-                </a>
+          <h1 class="post-title" itemprop="name headline">为什么要用 SWC
               
             
           </h1>
@@ -361,9 +365,7 @@
       
 
       
-        
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC；</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在这全员内卷的年代，打包工具也开始内卷！！！Vite，Snawpack等新型构建工具的出现，严重影响了传统工具的地位。But！并不是完全地没希望了！以下介绍一个有望替代Babel的成长型构建工具SWC；</p>
 <h2 id="什么是Babel？"><a href="#什么是Babel？" class="headerlink" title="什么是Babel？"></a>什么是Babel？</h2><p>Babel 是一个工具，可以将较新版本的 JavaScript 代码（例如ES6）转译为旧版本的 JavaScript——它甚至可以转译TypeScript。</p>
 <p>Babel 根据您为它定义的配置读取源代码并编译更新的 JavaScript 功能，例如箭头函数或optional-chain等。Babel的编译原理大致如下：</p>
 <ul>
@@ -431,8 +433,6 @@
 <p>尽管如此，SWC 还是有希望能在传统的构建流程上 让 性能速度 这一项数据 不再成为我们的累赘。</p>
 <p>PS：工具不断内卷的原因 还是因为代码世界不够完美；人嘛！够完美了！就不要内卷了嘛！</p>
 
-          
-        
       
     </div>
 
@@ -452,156 +452,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/04/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wynn">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wynn's tech blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/01/04/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2021/01/04/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2021-01-04 17:56:47" itemprop="dateCreated datePublished" datetime="2021-01-04T17:56:47+08:00">2021-01-04</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -611,14 +483,19 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -639,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -685,6 +571,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Babel？"><span class="nav-number">2.</span> <span class="nav-text">什么是Babel？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Babel-的替代方案（用-Rust-编写）"><span class="nav-number">3.</span> <span class="nav-text">Babel 的替代方案（用 Rust 编写）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不是所有的前端项目都需要编译器！"><span class="nav-number">4.</span> <span class="nav-text">不是所有的前端项目都需要编译器！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWC的使用"><span class="nav-number">5.</span> <span class="nav-text">SWC的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">5.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">5.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建"><span class="nav-number">5.3.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Webpack-swc-loader"><span class="nav-number">5.4.</span> <span class="nav-text">Webpack-[swc-loader]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-swc-loader"><span class="nav-number">5.5.</span> <span class="nav-text">React-[swc-loader]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Babel-和-SWC-的速度比较"><span class="nav-number">6.</span> <span class="nav-text">Babel 和 SWC 的速度比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单核-CPU"><span class="nav-number">6.1.</span> <span class="nav-text">单核 CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多核CPU"><span class="nav-number">6.2.</span> <span class="nav-text">多核CPU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -812,6 +714,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
